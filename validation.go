@@ -76,7 +76,7 @@ func (row Row) ValidateRow(rec []string) error {
 
 	if uint(len(rec)) != row.ColumnsTotalNum {
 		return fmt.Errorf("invalid row [row:[%v]; columns num:[%d]; should be: [%d]]",
-			rec,  len(rec), row.ColumnsTotalNum)
+			rec, len(rec), row.ColumnsTotalNum)
 	}
 
 	return row.ColumnsRules.ValidateRow(rec)
@@ -94,7 +94,7 @@ func (rules ValidationRules) ValidateRow(rec []string) error {
 
 	for col, rule := range rules {
 		if err := validateColumn(rec[col.Number], rule); err != nil {
-			return fmt.Errorf("invalid column [row:%s; column:%s]: %w", rec,col.String(), err)
+			return fmt.Errorf("invalid column [row:%s; column:%s]: %w", rec, col.String(), err)
 		}
 	}
 
@@ -109,18 +109,18 @@ func validateColumn(data string, rule Rule) error {
 	if rule.MinLength == rule.MaxLength {
 		if uint(len(data)) != rule.MinLength {
 			return fmt.Errorf("invalid length [column:[%s]; has len:[%d]; should be:[%d]]",
-				data,len(data),rule.MinLength)
+				data, len(data), rule.MinLength)
 		}
 	}
 
 	if uint(len(data)) < rule.MinLength {
 		return fmt.Errorf("invalid length [column:[%s]; has len:[%d]; should be at less[%d]]",
-			data, len(data),rule.MinLength)
+			data, len(data), rule.MinLength)
 	}
 
 	if uint(len(data)) > rule.MaxLength && rule.MaxLength != 0 {
 		return fmt.Errorf("invalid length [column:[%s]; has len:[%d]; should be at less[%d]]",
-			data, len(data),rule.MaxLength)
+			data, len(data), rule.MaxLength)
 	}
 
 	if rule.RestrictedChars != nil {
