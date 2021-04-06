@@ -5,8 +5,7 @@ updates:
     schedule:
       interval: "daily"
     labels:
-      - "go dependencies"
-      - "deps"
+      - "dependencies"
     assignees:
       - "obalunenko"
     reviewers:
@@ -20,8 +19,7 @@ updates:
     schedule:
       interval: "weekly"
     labels:
-      - "github-actions"
-      - "deps"
+      - "dependencies"
     assignees:
       - "obalunenko"
     reviewers:
@@ -29,3 +27,4 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+ 
